@@ -10,5 +10,10 @@
   },
   "new-rental": {
     "subtitle": "Create a New Rental Contract"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "powered-by": "Powered by",
+    "and": "and"
   }
 }

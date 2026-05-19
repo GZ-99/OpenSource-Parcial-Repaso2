@@ -10,5 +10,10 @@
   },
   "new-rental": {
     "subtitle": "Crear un Nuevo Contrato de Alquiler"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados.",
+    "powered-by": "Desarrollado con",
+    "and": "y"
   }
 }
