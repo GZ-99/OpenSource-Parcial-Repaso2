@@ -1,0 +1,14 @@
+{
+  "option": {
+    "home": "Inicio",
+    "new-rental": "Nuevo Alquiler"
+  },
+  "home": {
+    "welcome": "Bienvenido a Enterprise Rent-A-Car",
+    "fleet": "Análisis de Utilización de Flotas",
+    "next": "Próximo Incidente Urgente"
+  },
+  "new-rental": {
+    "subtitle": "Crear un Nuevo Contrato de Alquiler"
+  }
+}
