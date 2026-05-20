@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import {inject} from '@angular/core';
 import {FormBuilder, FormControl, ReactiveFormsModule, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -15,6 +15,7 @@ import {MatInput} from '@angular/material/input';
   imports: [ReactiveFormsModule, MatFormFieldModule, MatSelectModule, MatButtonModule, MatInput],
   templateUrl: './rental-form.html',
   styleUrl: './rental-form.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RentalForm {
   private fb = inject(FormBuilder);
@@ -77,6 +78,6 @@ export class RentalForm {
       this.store.addRental(rental);
     }
 
-    this.router.navigate(['services/rentals']).then();
+    this.router.navigate(['/services', 'rentals']).then();
   }
 }

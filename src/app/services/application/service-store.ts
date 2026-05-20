@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import {computed, Signal, signal} from '@angular/core';
 import {Vehicle} from '../domain/model/vehicle.entity';
 import {Rental} from '../domain/model/rental.entity';
@@ -29,7 +29,9 @@ export class ServiceStore {
   readonly rentalCount = computed(() => this.rentals().length);
   readonly vehicleCount = computed(() => this.vehicles().length);
 
-  constructor(private serviceApi: ServiceApi) {
+  private readonly serviceApi = inject(ServiceApi);
+
+  constructor() {
     this.loadIncidents();
     this.loadRentals();
     this.loadVehicles();
@@ -268,10 +270,10 @@ export class ServiceStore {
     });
   }
 
-  /**
-   * Loads all categories from the API.
-   */
-  private loadVehicles(): void {
+   /**
+    * Loads all vehicles from the API.
+    */
+   private loadVehicles(): void {
     this.loadingSignal.set(true);
     this.errorSignal.set(null);
     this.serviceApi.getVehicles().pipe(takeUntilDestroyed()).subscribe({

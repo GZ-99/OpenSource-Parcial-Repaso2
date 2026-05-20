@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import {inject} from '@angular/core';
 import {FormBuilder, FormControl, ReactiveFormsModule, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -13,6 +13,7 @@ import {MatInputModule} from '@angular/material/input';
   imports: [MatFormFieldModule, MatInputModule, MatButtonModule, ReactiveFormsModule],
   templateUrl: './vehicle-form.html',
   styleUrl: './vehicle-form.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class VehicleForm {
   private fb = inject(FormBuilder);
@@ -68,6 +69,6 @@ export class VehicleForm {
       this.store.addVehicle(vehicle);
     }
 
-    this.router.navigate(['services/vehicles']).then();
+    this.router.navigate(['/services', 'vehicles']).then();
   }
 }

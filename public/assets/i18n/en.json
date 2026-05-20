@@ -1,14 +1,14 @@
 {
-  "option": {
-    "home": "Home",
-    "new-rental": "New Rental"
-  },
-  "home": {
+  "home": "Home",
+  "new-rental": "New Rental",
+  "vehicles": "Vehicles",
+  "incidents": "Incidents",
+  "home-page": {
     "welcome": "Welcome to Enterprise Rent-A-Car",
     "fleet": "Fleet Utilization Analytics",
     "next": "Next Urgent Incident"
   },
-  "new-rental": {
+  "new-rental-page": {
     "subtitle": "Create a New Rental Contract"
   },
   "footer": {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import {inject} from '@angular/core';
 import {FormBuilder, FormControl, ReactiveFormsModule, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -16,6 +16,7 @@ import {MatInput} from '@angular/material/input';
   imports: [ReactiveFormsModule, MatFormFieldModule, MatSelectModule, MatButtonModule, MatInput],
   templateUrl: './incident-form.html',
   styleUrl: './incident-form.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IncidentForm {
   private fb = inject(FormBuilder);
@@ -78,6 +79,6 @@ export class IncidentForm {
       this.store.addIncident(incident);
     }
 
-    this.router.navigate(['services/incidents']).then();
+    this.router.navigate(['/services', 'incidents']).then();
   }
 }

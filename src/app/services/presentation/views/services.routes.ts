@@ -8,13 +8,13 @@ const vehicleList = () => import('./vehicle-list/vehicle-list').then(m => m.Vehi
 const vehicleForm = () => import('./vehicle-form/vehicle-form').then(m => m.VehicleForm);
 
 export const servicesRoutes: Routes = [
-  { path: 'incident',              loadComponent: incidentList },
-  { path: 'incident/new',          loadComponent: incidentForm },
-  { path: 'incident/edit/:id',     loadComponent: incidentForm },
-  { path: 'rental',              loadComponent: rentalList },
-  { path: 'rental/new',          loadComponent: rentalForm },
-  { path: 'rental/edit/:id',     loadComponent: rentalForm },
-  { path: 'vehicle',           loadComponent: vehicleList },
-  { path: 'vehicle/new',       loadComponent: vehicleForm },
-  { path: 'vehicle/edit/:id',  loadComponent: vehicleForm }
+  { path: 'incidents',              loadComponent: incidentList },
+  { path: 'incidents/new',          loadComponent: incidentForm },
+  { path: 'incidents/edit/:id',     loadComponent: incidentForm },
+  { path: 'rentals',              loadComponent: rentalList },
+  { path: 'rentals/new',          loadComponent: rentalForm },
+  { path: 'rentals/edit/:id',     loadComponent: rentalForm },
+  { path: 'vehicles',           loadComponent: vehicleList },
+  { path: 'vehicles/new',       loadComponent: vehicleForm },
+  { path: 'vehicles/edit/:id',  loadComponent: vehicleForm }
 ];

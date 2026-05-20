@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import {inject} from '@angular/core';
 import {ServiceStore} from '../../../application/service-store';
 import {Router} from '@angular/router';
@@ -14,6 +14,7 @@ import {MatProgressSpinner} from '@angular/material/progress-spinner';
     MatCell, MatHeaderRowDef, MatRowDef, MatButton, MatHeaderRow, MatRow, MatProgressSpinner],
   templateUrl: './rental-list.html',
   styleUrl: './rental-list.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RentalList {
   readonly store = inject(ServiceStore);
@@ -22,7 +23,7 @@ export class RentalList {
   displayedColumns: string[] = ['id', 'vehicleId', 'clientId', 'startDate', 'endDate', 'durationDays', 'totalCost', 'status', 'actions'];
 
   editRental(id: number) {
-    this.router.navigate(['services/rentals/edit', id]).then();
+    this.router.navigate(['/services', 'rentals', 'edit', id]).then();
   }
 
   deleteRental(id: number) {

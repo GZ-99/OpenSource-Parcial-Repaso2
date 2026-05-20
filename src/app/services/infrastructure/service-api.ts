@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import {BaseApi} from '../../shared/infrastructure/base-api';
 import {Vehicle} from '../domain/model/vehicle.entity';
 import {Rental} from '../domain/model/rental.entity';
@@ -13,15 +13,16 @@ import {Observable} from 'rxjs';
   providedIn: 'root',
 })
 export class ServiceApi  extends BaseApi {
-  private readonly vehiclesEndpoint:     VehiclesApiEndpoint;
-  private readonly rentalsEndpoint:  RentalsApiEndpoint;
+  private readonly http = inject(HttpClient);
+  private readonly vehiclesEndpoint: VehiclesApiEndpoint;
+  private readonly rentalsEndpoint: RentalsApiEndpoint;
   private readonly incidentsEndpoint: IncidentsApiEndpoint;
 
-  constructor(http: HttpClient) {
+  constructor() {
     super();
-    this.vehiclesEndpoint =    new VehiclesApiEndpoint(http);
-    this.rentalsEndpoint = new RentalsApiEndpoint(http);
-    this.incidentsEndpoint = new IncidentsApiEndpoint(http);
+    this.vehiclesEndpoint = new VehiclesApiEndpoint(this.http);
+    this.rentalsEndpoint = new RentalsApiEndpoint(this.http);
+    this.incidentsEndpoint = new IncidentsApiEndpoint(this.http);
   }
 
   /**

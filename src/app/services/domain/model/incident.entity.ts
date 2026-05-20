@@ -19,7 +19,7 @@ export class Incident implements BaseEntity {
    * @param incident - An object containing optional properties to initialize the incident.
    * @param incident.id - The unique identifier for the incident.
    * @param incident.vehicleId - The unique identifier for the vehicle.
-   * @param incident.rentalId - The unique identifier for the vehicle.
+    * @param incident.rentalId - The unique identifier for the rental.
    * @param incident.incidentType - The type of the incident.
    * @param incident.registeredAt - The record of the incident.
    * @param incident.estimatedRepairCost - The cost of the incident.

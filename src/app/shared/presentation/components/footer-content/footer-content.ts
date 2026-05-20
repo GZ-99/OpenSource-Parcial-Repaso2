@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
@@ -6,5 +6,6 @@ import {TranslatePipe} from '@ngx-translate/core';
   imports: [TranslatePipe],
   templateUrl: './footer-content.html',
   styleUrl: './footer-content.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FooterContent {}

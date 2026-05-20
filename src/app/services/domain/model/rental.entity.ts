@@ -12,10 +12,10 @@ export class Rental implements BaseEntity {
   private _status: string;
   private _vehicle: Vehicle | null;
 
-  /**
-   * Creates a new instance of the Course class.
-   *
-   * @param rental - An object containing optional properties to initialize the rental.
+   /**
+    * Creates a new instance of the Rental class.
+    *
+    * @param rental - An object containing optional properties to initialize the rental.
    * @param rental.id - The unique identifier for the rental.
    * @param rental.vehicleId - The unique identifier for the vehicle.
    * @param rental.clientId - The unique identifier for the client

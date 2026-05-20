@@ -1,14 +1,14 @@
 {
-  "option": {
-    "home": "Inicio",
-    "new-rental": "Nuevo Alquiler"
-  },
-  "home": {
+  "home": "Inicio",
+  "new-rental": "Nuevo Alquiler",
+  "vehicles": "Vehículos",
+  "incidents": "Incidentes",
+  "home-page": {
     "welcome": "Bienvenido a Enterprise Rent-A-Car",
     "fleet": "Análisis de Utilización de Flotas",
     "next": "Próximo Incidente Urgente"
   },
-  "new-rental": {
+  "new-rental-page": {
     "subtitle": "Crear un Nuevo Contrato de Alquiler"
   },
   "footer": {
