@@ -1,1 +1,48 @@
-<p>vehicle-form works!</p>
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <mat-form-field>
+    <mat-label>Make</mat-label>
+    <input matInput formControlName="make" required>
+    @if (form.get('make')!.hasError('required')) {
+      <mat-error>Make is required</mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Model</mat-label>
+    <input matInput formControlName="model" required>
+    @if (form.get('model')!.hasError('required')) {
+      <mat-error>Model is required</mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>MileageKm</mat-label>
+    <input matInput formControlName="mileageKm" required>
+    @if (form.get('mileageKm')!.hasError('required')) {
+      <mat-error>MileageKm is required</mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>DailyRate</mat-label>
+    <input matInput formControlName="dailyRate" required>
+    @if (form.get('dailyRate')!.hasError('required')) {
+      <mat-error>DailyRate is required</mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>VehicleType</mat-label>
+    <input matInput formControlName="vehicleType" required>
+    @if (form.get('vehicleType')!.hasError('required')) {
+      <mat-error>VehicleType is required</mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Status</mat-label>
+    <input matInput formControlName="status" required>
+    @if (form.get('status')!.hasError('required')) {
+      <mat-error>Status is required</mat-error>
+    }
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+    {{ isEdit ? 'Update' : 'Add' }} Vehicle
+  </button>
+</form>
