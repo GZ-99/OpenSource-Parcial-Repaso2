@@ -45,6 +45,15 @@ export class ServiceStore {
   }
 
   /**
+   * Retrieves a rental by its ID as a signal.
+   * @param id - The ID of the rental.
+   * @returns A Signal containing the Rental object or undefined if not found.
+   */
+  getRentalById(id: number | null | undefined): Signal<Rental | undefined> {
+    return computed(() => id ? this.rentals().find(c => c.id === id) : undefined);
+  }
+
+  /**
    * Adds a new rental.
    * @param course - The rental to add.
    */
