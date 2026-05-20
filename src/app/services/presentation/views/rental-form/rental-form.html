@@ -1,1 +1,63 @@
-<p>rental-form works!</p>
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <mat-form-field>
+    <mat-label>ClientId</mat-label>
+    <input matInput formControlName="clientId" required>
+    @if (form.get('clientId')?.touched && form.get('clientId')!.hasError('required')) {
+      <mat-error>ClientId is required</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>StartDate</mat-label>
+    <input matInput formControlName="startDate" required>
+    @if (form.get('startDate')?.touched && form.get('startDate')!.hasError('required')) {
+      <mat-error>Start Date is required</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>EndDate</mat-label>
+    <input matInput formControlName="endDate" required>
+    @if (form.get('endDate')?.touched && form.get('endDate')!.hasError('required')) {
+      <mat-error>End Date is required</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>DurationDays</mat-label>
+    <input matInput formControlName="durationDays" required>
+    @if (form.get('durationDays')?.touched && form.get('durationDays')!.hasError('required')) {
+      <mat-error>Duration Days is required</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Total Cost</mat-label>
+    <input matInput formControlName="totalCost" required>
+    @if (form.get('totalCost')?.touched && form.get('totalCost')!.hasError('required')) {
+      <mat-error>Total Cost is required</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Status</mat-label>
+    <input matInput formControlName="status" required>
+    @if (form.get('status')?.touched && form.get('status')!.hasError('required')) {
+      <mat-error>Status is required</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Vehicle</mat-label>
+    <mat-select formControlName="vehicleId">
+      <mat-option [value]="null">None</mat-option>
+      @for (vehicle of vehicles(); track vehicle.id) {
+        <mat-option [value]="vehicle.id">{{ vehicle.model }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+    {{ isEdit ? 'Update' : 'Add' }} Rental
+  </button>
+</form>
