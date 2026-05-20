@@ -1,1 +1,63 @@
-<p>incident-list works!</p>
+@if (store.loading()) {
+  <mat-spinner diameter="40"></mat-spinner>
+}
+@if (store.error()) {
+  <mat-error>{{ store.error() }}</mat-error>
+}
+<table mat-table [dataSource]="store.incidents()" class="mat-elevation-z8">
+  <!-- ID Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> ID </th>
+    <td mat-cell *matCellDef="let incident"> {{ incident.id }} </td>
+  </ng-container>
+
+  <!-- IncidentType Column -->
+  <ng-container matColumnDef="incidentType">
+    <th mat-header-cell *matHeaderCellDef> IncidentType </th>
+    <td mat-cell *matCellDef="let incident"> {{ incident.incidentType }} </td>
+  </ng-container>
+
+  <!-- RegisteredAt Column -->
+  <ng-container matColumnDef="registeredAt">
+    <th mat-header-cell *matHeaderCellDef> RegisteredAt </th>
+    <td mat-cell *matCellDef="let incident"> {{ incident.registeredAt }} </td>
+  </ng-container>
+
+  <!-- EstimatedRepairCost Column -->
+  <ng-container matColumnDef="estimatedRepairCost">
+    <th mat-header-cell *matHeaderCellDef> EstimatedRepairCost </th>
+    <td mat-cell *matCellDef="let incident"> {{ incident.estimatedRepairCost }} </td>
+  </ng-container>
+
+  <!-- Priority Column -->
+  <ng-container matColumnDef="priority">
+    <th mat-header-cell *matHeaderCellDef> Priority </th>
+    <td mat-cell *matCellDef="let incident"> {{ incident.priority }} </td>
+  </ng-container>
+
+  <!-- Vehicle Column -->
+  <ng-container matColumnDef="vehicle">
+    <th mat-header-cell *matHeaderCellDef> Vehicle </th>
+    <td mat-cell *matCellDef="let incident"> {{ incident.vehicle?.id ?? 'None' }} </td>
+  </ng-container>
+
+  <!-- Rental Column -->
+  <ng-container matColumnDef="rental">
+    <th mat-header-cell *matHeaderCellDef> Rental </th>
+    <td mat-cell *matCellDef="let incident"> {{ incident.rental?.id ?? 'None' }} </td>
+  </ng-container>
+
+  <!-- Actions Column -->
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Actions </th>
+    <td mat-cell *matCellDef="let incident">
+      <button mat-button (click)="editIncident(incident.id)">Edit</button>
+      <button mat-button (click)="deleteIncident(incident.id)">Delete</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<button mat-raised-button color="primary" (click)="router.navigate(['services/incidents/new'])">Add Incident</button>
